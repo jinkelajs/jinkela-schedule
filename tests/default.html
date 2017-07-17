@@ -1,0 +1,26 @@
+<meta charset="utf-8" />
+<script src="/tester.js"></script>
+<script src="../node_modules/jinkela/umd.js"></script>
+<script src="../index.js"></script>
+<script>
+addEventListener('load', () => {
+
+  let schedule = new Schedule().to(document.body);
+
+  // left and right
+  Tester.assert(Date.now() - schedule.right + 864E5 < 100);
+  Tester.assert(Date.now() - schedule.left < 100);
+
+  // no ul
+  Tester.assert(schedule.step === 18E5);
+
+  // no ul
+  Tester.assert(getComputedStyle(schedule.element.firstElementChild).display === 'none');
+
+  // UI
+  Tester.assert(schedule.element.children[1].lastElementChild.offsetWidth === 0);
+
+  Tester.feedback(true);
+
+});
+</script>

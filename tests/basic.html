@@ -1,0 +1,34 @@
+<meta charset="utf-8" />
+<script src="/tester.js"></script>
+<script src="../node_modules/jinkela/umd.js"></script>
+<script src="../index.js"></script>
+<script>
+addEventListener('load', () => {
+
+  let schedule = new Schedule({
+    width: 500,
+    left: new Date(2017, 7, 1),
+    right: new Date(2017, 8, 1),
+    step: 864E5,
+    points: {
+      立秋: new Date(2017, 7, 7),
+      处暑: new Date(2017, 7, 23),
+      九月: new Date(2017, 8, 1)
+    }
+  }).to(document.body);
+
+  // default
+  Tester.assert(JSON.stringify(schedule.value) === JSON.stringify([ new Date(2017, 7, 1), new Date(2017, 7, 1) ]));
+
+  // assign
+  let value = [ new Date(2017, 7, 7), new Date(2017, 7, 28) ];
+  schedule.value = value;
+  Tester.assert(JSON.stringify(schedule.value) === JSON.stringify(value));
+
+  // UI
+  Tester.assert(schedule.element.children[1].lastElementChild.offsetWidth === 327);
+
+  Tester.feedback(true);
+
+});
+</script>

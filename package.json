@@ -1,0 +1,21 @@
+{
+  "name": "jinkela-schedule",
+  "version": "1.0.0",
+  "description": "A Schedule on Jinkela",
+  "main": "index.js",
+  "author": "YanagiEiichi (admin@web-tinker.com)",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "test": "ui-tester-start tests"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "eslint": "^4.2.0",
+    "eslint-config-elemefe": "^0.3.0",
+    "jinkela": "^1.2.19",
+    "ui-tester": "^1.1.3"
+  }
+}
